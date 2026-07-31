@@ -16,4 +16,4 @@ See `DEPLOYMENT-GUIDE-IIS.txt` and `SEO-DEPLOYMENT-CHECKLIST.txt` before publish
 
 `wwwroot/index.html`
 
-Audit date: July 30, 2026.
+Latest content update: July 31, 2026.

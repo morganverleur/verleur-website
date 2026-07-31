@@ -3074,6 +3074,11 @@ body { font-size: var(--type-body); }
   border-color: rgba(239,73,96,.7);
   background: rgba(255,255,255,.065);
 }
+.accomplishment-list .accomplishment-domain {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .015em;
+}
 .accomplishment-list li span {
   display: grid;
   place-items: center;
@@ -3083,6 +3088,9 @@ body { font-size: var(--type-body); }
   color: #ff667b;
   font-weight: 700;
   letter-spacing: .06em;
+}
+.contact-directory-header-follow {
+  justify-content: flex-end;
 }
 .accomplishment-list li:last-child {
   grid-column: 1 / -1;
