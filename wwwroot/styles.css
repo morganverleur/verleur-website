@@ -1243,7 +1243,7 @@ html:not(.js) .hero-media {
   .hero-scroll-cue span { animation: none; }
 }
 
-/* Articles & Press: clear separation between coverage and authored articles. */
+/* Articles, Press & Media: clear separation between coverage, authored articles and video. */
 .press-section {
   margin-top: 34px;
 }
@@ -1287,6 +1287,102 @@ html:not(.js) .hero-media {
   letter-spacing: .06em;
   text-transform: uppercase;
 }
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 24px;
+  padding-top: 28px;
+}
+.media-card {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.16);
+  background: linear-gradient(145deg,rgba(189,29,55,.13),rgba(255,255,255,.025));
+  transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.media-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,88,116,.55);
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+}
+.media-player {
+  position: relative;
+  display: block;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #050505;
+}
+.media-player iframe,
+.media-player img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+.media-player-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72));
+  transition: background .25s ease;
+}
+.media-player-link:hover::after { background: linear-gradient(180deg,rgba(168,22,22,.08),rgba(0,0,0,.76)); }
+.media-play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(168,22,22,.9);
+  transform: translate(-50%,-50%);
+  transition: transform .25s ease,background .25s ease;
+}
+.media-player-link:hover .media-play { background: #bd1d37; transform: translate(-50%,-50%) scale(1.08); }
+.media-platform {
+  position: absolute;
+  z-index: 2;
+  right: 16px;
+  bottom: 14px;
+  color: #fff;
+  font: 700 12px/1 Montserrat,sans-serif;
+  letter-spacing: .12em;
+}
+.media-card-copy { padding: 24px; }
+.media-date {
+  margin: 0 0 10px;
+  color: #ff6b83;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.media-card h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font: 600 24px/1.25 Strait,sans-serif;
+}
+.media-card-copy > p:not(.media-date) {
+  margin: 0;
+  color: rgba(255,255,255,.82);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.media-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #ff6b83;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-decoration: none;
+}
+.media-link:hover { color: #fff; }
 
 @media (max-width: 700px) {
   .press-section {
@@ -1309,6 +1405,10 @@ html:not(.js) .hero-media {
   .press-card-update {
     padding-left: 13px;
   }
+  .media-grid { grid-template-columns: 1fr; gap: 18px; padding-top: 20px; }
+  .media-card-copy { padding: 20px; }
+  .media-card h3 { font-size: 22px; }
+  .media-card:hover { transform: none; }
 }
 
 /* Global proportion pass: cap viewport-driven scaling on wide displays. */
