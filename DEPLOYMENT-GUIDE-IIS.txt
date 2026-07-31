@@ -1,0 +1,98 @@
+VERLEUR.COM — IIS / WINDOWS DEPLOYMENT
+=====================================
+
+PACKAGE CONTENTS
+----------------
+wwwroot/
+  Production website files. Copy the CONTENTS of this folder to the IIS
+  physical path configured for verleur.com.
+
+This is a standalone static website. It does not require Firebase, Node.js,
+PHP, a database, or a build process.
+
+
+BEFORE DEPLOYMENT
+-----------------
+1. Back up the complete current website and its IIS configuration.
+2. Confirm the physical path and bindings currently used by verleur.com.
+3. Test this package in a temporary IIS site or hostname before production.
+4. Do not change mail-related DNS records.
+
+
+IIS REQUIREMENTS
+----------------
+- Windows Server with IIS.
+- The IIS "Static Content" feature enabled.
+- The IIS "Static Content Compression" feature is recommended.
+- Application Pool: "No Managed Code" is recommended.
+- The IIS identity needs read access to the website folder.
+- index.html must be an enabled default document. The included web.config
+  configures it explicitly.
+
+
+INSTALLATION
+------------
+1. Stop or temporarily disable the production site's deployment process.
+2. Back up the current physical directory.
+3. Copy every item inside wwwroot/ into the physical directory for the site,
+   preserving the directory structure.
+4. Confirm that web.config is present in the physical directory root.
+5. Start/recycle the IIS site and application pool.
+6. Test:
+     https://verleur.com/
+     https://verleur.com/meet-the-team/
+     https://verleur.com/fund-portfolio/
+     https://verleur.com/brand-portfolio/
+     https://verleur.com/press/
+     https://verleur.com/sitemap.xml
+     https://verleur.com/robots.txt
+
+
+DOMAIN AND HTTPS
+----------------
+- Production canonical hostname: verleur.com
+- Canonical protocol: HTTPS
+- Bind verleur.com and www.verleur.com to the production site.
+- Install/renew a valid TLS certificate covering both hostnames.
+- Redirect HTTP to HTTPS at the AWS load balancer, reverse proxy, CDN, or IIS.
+- Redirect www.verleur.com to https://verleur.com while preserving the path
+  and query string.
+
+The package intentionally does not force hostname/HTTPS redirects inside
+web.config because IIS URL Rewrite is an optional server module. Configuring
+redirects at the existing AWS load balancer or IIS layer prevents a missing
+module from taking the website offline.
+
+
+EMAIL SAFETY — CRITICAL
+-----------------------
+Publishing files inside the existing AWS/IIS website does not require a DNS
+change and should not affect corporate email.
+
+If a DNS change is ever required, change ONLY the web records for @ and www.
+Do not modify:
+- MX records
+- SPF, DKIM, or DMARC records
+- mail or autodiscover records
+- TXT verification records
+- nameservers
+
+
+PRODUCTION CHECKLIST
+--------------------
+[ ] Home page and all four internal pages return HTTP 200.
+[ ] HTTPS certificate is valid for verleur.com and www.verleur.com.
+[ ] HTTP redirects to HTTPS.
+[ ] www redirects to the canonical non-www domain.
+[ ] CSS, JavaScript, WebP images, SVG, WOFF2, and webmanifest load normally.
+[ ] Mobile navigation and sticky header work.
+[ ] Contact links, external portfolio links, and UTM parameters work.
+[ ] robots.txt and sitemap.xml are available.
+[ ] Incoming and outgoing corporate email still work.
+[ ] The previous website backup is retained for rollback.
+
+
+ROLLBACK
+--------
+Restore the backed-up physical directory and the previous IIS configuration.
+No database rollback is required because this website is static.
