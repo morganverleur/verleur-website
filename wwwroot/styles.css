@@ -1350,14 +1350,14 @@ html:not(.js) .hero-media {
   right: 16px;
   bottom: 14px;
   color: #fff;
-  font: 700 12px/1 Montserrat,sans-serif;
+  font: 700 14px/1 Montserrat,sans-serif;
   letter-spacing: .12em;
 }
 .media-card-copy { padding: 24px; }
 .media-date {
   margin: 0 0 10px;
   color: #ff6b83;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1377,7 +1377,7 @@ html:not(.js) .hero-media {
   display: inline-block;
   margin-top: 20px;
   color: #ff6b83;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: .04em;
   text-decoration: none;
@@ -1397,7 +1397,7 @@ html:not(.js) .hero-media {
     padding-bottom: 16px;
   }
   .press-section-heading p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .press-section-heading h2 {
     font-size: clamp(27px,8vw,34px);
