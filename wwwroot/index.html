@@ -117,6 +117,13 @@
   ]
 }
   </script>
+  <script>
+    // A direct home-page visit must start at the hero. Section links keep their hash behavior.
+    if (!window.location.hash && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+      window.addEventListener("pageshow", () => window.scrollTo(0, 0), { once: true });
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
