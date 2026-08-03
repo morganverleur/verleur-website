@@ -2526,7 +2526,7 @@ body { font-size: var(--type-body); }
 }
 .fund-entity-card {
   display: grid;
-  grid-template-columns: 44px 74px minmax(140px,.8fr) minmax(190px,1.1fr);
+  grid-template-columns: 74px minmax(140px,.8fr) minmax(190px,1.1fr);
   align-items: center;
   gap: 14px;
   min-height: 118px;
@@ -2536,24 +2536,11 @@ body { font-size: var(--type-body); }
   clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
   transition: transform .2s ease,border-color .2s ease,box-shadow .2s ease;
 }
-.fund-entity-card-no-number {
-  grid-template-columns: 74px minmax(140px,.8fr) minmax(190px,1.1fr);
-}
 .fund-entity-card:hover {
   z-index: 1;
   transform: translateY(-3px);
   border-color: #b9969d;
   box-shadow: 0 14px 28px rgba(47,26,30,.09);
-}
-.entity-number {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid #cdbdc0;
-  color: #9b152a;
-  font-size: 12px;
-  font-weight: 700;
 }
 .entity-logo {
   display: grid;
@@ -2624,11 +2611,9 @@ body { font-size: var(--type-body); }
 
 @media (max-width: 1100px) {
   .fund-summary-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .fund-entity-card { grid-template-columns: 44px 70px minmax(0,1fr); align-content: center; }
-  .fund-entity-card-no-number { grid-template-columns: 70px minmax(0,1fr); }
+  .fund-entity-card { grid-template-columns: 70px minmax(0,1fr); align-content: center; }
   .entity-logo { width: 70px; }
-  .entity-funds { grid-column: 3; }
-  .fund-entity-card-no-number .entity-funds { grid-column: 2; }
+  .entity-funds { grid-column: 2; }
 }
 
 @media (max-width: 720px) {
@@ -2637,12 +2622,9 @@ body { font-size: var(--type-body); }
   .fund-summary { min-height: 0; }
   .portfolio-entities-heading { display: block; }
   .portfolio-entities-heading .section-kicker { margin-bottom: 10px; }
-  .fund-entity-card { grid-template-columns: 40px 62px minmax(0,1fr); min-height: 0; padding: 16px 14px; gap: 12px; }
-  .fund-entity-card-no-number { grid-template-columns: 62px minmax(0,1fr); }
-  .entity-number { width: 36px; height: 36px; }
+  .fund-entity-card { grid-template-columns: 62px minmax(0,1fr); min-height: 0; padding: 16px 14px; gap: 12px; }
   .entity-logo { width: 62px; height: 52px; padding: 7px; }
-  .entity-funds { grid-column: 2 / 4; }
-  .fund-entity-card-no-number .entity-funds { grid-column: 2; }
+  .entity-funds { grid-column: 2; }
   .entity-copy h3 { font-size: 20px; }
   .fund-pill { font-size: 13px; }
 }
