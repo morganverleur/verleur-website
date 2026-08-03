@@ -2953,27 +2953,26 @@ body { font-size: var(--type-body); }
     #0e0d0e;
   clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
 }
-.consulting-details {
+.consulting-overview {
   order: 3;
   margin-top: 18px;
+  overflow: hidden;
   border: 1px solid #cec2be;
+  border-top: 3px solid #9b152a;
   background: #fff;
   box-shadow: 0 16px 40px rgba(45,23,27,.08);
 }
-.consulting-details summary {
+.consulting-overview-heading {
   display: grid;
-  grid-template-columns: 44px minmax(0,1fr) auto 28px;
+  grid-template-columns: 44px minmax(0,1fr);
   align-items: center;
   gap: 16px;
   min-height: 78px;
-  padding: 16px 24px;
-  cursor: pointer;
-  color: #231e20;
-  list-style: none;
-  transition: background .2s ease, border-color .2s ease;
+  padding: 16px 28px;
+  border-bottom: 1px solid #d9cecb;
+  background: linear-gradient(90deg, #fff, #f8f2f1);
 }
-.consulting-details summary::before {
-  content: "02";
+.consulting-overview-index {
   display: grid;
   width: 40px;
   height: 40px;
@@ -2982,53 +2981,33 @@ body { font-size: var(--type-body); }
   color: #9b152a;
   font: 700 12px/1 Montserrat, Arial, sans-serif;
 }
-.consulting-details summary:hover,
-.consulting-details summary:focus-visible { background: #f5ecec; }
-.consulting-details summary::-webkit-details-marker { display: none; }
-.consulting-details summary span {
+.consulting-overview-heading h3 {
+  margin: 0;
   color: #861529;
-  font: 500 25px/1.2 Strait, sans-serif;
+  font: 500 27px/1.2 Strait, sans-serif;
   text-transform: uppercase;
 }
-.consulting-details summary i {
-  color: #393235;
-  font-size: 16px;
-  font-style: normal;
-}
-.consulting-details summary::after {
-  content: "+";
-  color: #a5162c;
-  font-size: 28px;
-  line-height: 1;
-}
-.consulting-details[open] summary::after { content: "−"; }
-.consulting-details .editorial-columns {
+.consulting-overview .editorial-columns {
   margin: 0;
-  padding: 28px;
-  border-top: 1px solid #d9cecb;
-  background: #f4f0ea;
-}
-.consulting-details .editorial-columns > div {
-  padding: 26px;
-  border: 1px solid #d9cecb;
-  border-top: 3px solid #9b152a;
+  padding: 36px 38px 40px;
+  gap: 0;
   background: #fff;
 }
-.consulting-details .editorial-columns > div:first-child {
-  padding-left: 26px;
-  border-left: 1px solid #d9cecb;
+.consulting-overview .editorial-columns > div {
+  padding: 0 36px;
 }
-#consulting + .incubation-consulting .consulting-details .editorial-columns p {
+.consulting-overview .editorial-columns > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+  border-right: 1px solid #d9cecb;
+}
+.consulting-overview .editorial-columns > div:last-child { padding-right: 0; }
+#consulting + .incubation-consulting .consulting-overview .editorial-columns p {
   color: #241f20;
   font-size: 17px;
   line-height: 1.68;
 }
-.consulting-details .editorial-columns p:last-child { margin-bottom: 0; }
-.js .consulting-details .reveal {
-  opacity: 1;
-  filter: none;
-  transform: none;
-}
+.consulting-overview .editorial-columns p:last-child { margin-bottom: 0; }
 .supply-chain-copy {
   position: relative;
   padding: 42px 46px;
@@ -3236,12 +3215,18 @@ body { font-size: var(--type-body); }
   .supply-chain-copy { padding: 28px 22px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
   .supply-chain-competencies { padding: 28px 22px; }
   .supply-chain-competencies .competency-list { grid-template-columns: 1fr; }
-  .consulting-details summary i { display: none; }
-  .consulting-details summary { grid-template-columns: 42px minmax(0,1fr) 24px; gap: 12px; min-height: 72px; padding: 14px 18px; }
-  .consulting-details summary span { font-size: 21px; }
-  .consulting-details .editorial-columns { padding: 22px 18px; }
-  .consulting-details .editorial-columns > div,
-  .consulting-details .editorial-columns > div:first-child { padding: 20px; }
+  .consulting-overview-heading { grid-template-columns: 40px minmax(0,1fr); gap: 12px; min-height: 70px; padding: 14px 18px; }
+  .consulting-overview-index { width: 38px; height: 38px; }
+  .consulting-overview-heading h3 { font-size: 22px; }
+  .consulting-overview .editorial-columns { padding: 26px 20px 28px; gap: 0; }
+  .consulting-overview .editorial-columns > div,
+  .consulting-overview .editorial-columns > div:last-child { padding: 0; }
+  .consulting-overview .editorial-columns > div:first-child {
+    margin-bottom: 24px;
+    padding: 0 0 24px;
+    border-right: 0;
+    border-bottom: 1px solid #d9cecb;
+  }
   .portfolio-overview-heading { display: block; }
   .portfolio-overview-heading > p { margin-top: 18px; }
   .portfolio-stat-grid { grid-template-columns: 1fr 1fr; }

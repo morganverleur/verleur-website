@@ -89,17 +89,6 @@ requestAnimationFrame(() => {
   });
 });
 
-document.querySelectorAll(".consulting-details").forEach((details) => {
-  const showDetailsContent = () => {
-    if (!details.open) return;
-    details.querySelectorAll(".reveal").forEach((element) => {
-      element.classList.add("is-visible");
-    });
-  };
-  details.addEventListener("toggle", showDetailsContent);
-  showDetailsContent();
-});
-
 if (toggle && nav) {
   const mobileNavQuery = window.matchMedia("(max-width: 1120px)");
   const submenuParents = [...nav.querySelectorAll(".submenu")].map((submenu) => {
